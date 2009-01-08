@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D255AC80486D3F9007BF209 /* DiscologyScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = F50079790118B23001CA0E54 /* DiscologyScreenSaverView.h */; };
+		8D255ACA0486D3F9007BF209 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D255ACC0486D3F9007BF209 /* DiscologyScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F500797A0118B23001CA0E54 /* DiscologyScreenSaverView.m */; };
+		8D255ACE0486D3F9007BF209 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		8D255ACF0486D3F9007BF209 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F27B2DFFEEEFEF11CA0E56 /* ScreenSaver.framework */; };
+		A86948D90F15FA71005945CD /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86948D80F15FA71005945CD /* QTKit.framework */; };
+		A86948DA0F15FA71005945CD /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86948D80F15FA71005945CD /* QTKit.framework */; };
+		A86948E20F15FB0A005945CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86948E00F15FB0A005945CD /* MainMenu.xib */; };
+		A86948E70F15FB21005945CD /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86948E40F15FB21005945CD /* MainController.m */; };
+		A86948F30F15FB4B005945CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A86948F20F15FB4B005945CD /* main.m */; };
+		A86949160F15FCB5005945CD /* Audiobooks.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949100F15FCB5005945CD /* Audiobooks.tiff */; };
+		A86949170F15FCB5005945CD /* Music.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949110F15FCB5005945CD /* Music.tiff */; };
+		A86949180F15FCB5005945CD /* Playlist.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949120F15FCB5005945CD /* Playlist.tiff */; };
+		A86949190F15FCB5005945CD /* Podcasts.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949130F15FCB5005945CD /* Podcasts.tiff */; };
+		A869491A0F15FCB5005945CD /* Purchased.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949140F15FCB5005945CD /* Purchased.tiff */; };
+		A869491B0F15FCB5005945CD /* SmartPlaylist.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949150F15FCB5005945CD /* SmartPlaylist.tiff */; };
+		A869491C0F15FCB5005945CD /* Audiobooks.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949100F15FCB5005945CD /* Audiobooks.tiff */; };
+		A869491D0F15FCB5005945CD /* Music.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949110F15FCB5005945CD /* Music.tiff */; };
+		A869491E0F15FCB5005945CD /* Playlist.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949120F15FCB5005945CD /* Playlist.tiff */; };
+		A869491F0F15FCB5005945CD /* Podcasts.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949130F15FCB5005945CD /* Podcasts.tiff */; };
+		A86949200F15FCB5005945CD /* Purchased.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949140F15FCB5005945CD /* Purchased.tiff */; };
+		A86949210F15FCB5005945CD /* SmartPlaylist.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949150F15FCB5005945CD /* SmartPlaylist.tiff */; };
+		A86949230F15FD07005945CD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		A889CCED0F15FF55008A186D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C167FFE841241C02AAC07 /* AppKit.framework */; };
+		A889CCEF0F15FF6E008A186D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A889CCEE0F15FF6E008A186D /* QuickTime.framework */; };
+		A889CCF00F15FF6E008A186D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A889CCEE0F15FF6E008A186D /* QuickTime.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		06F27B2DFFEEEFEF11CA0E56 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = /System/Library/Frameworks/ScreenSaver.framework; sourceTree = "<absolute>"; };
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		8D255AD20486D3F9007BF209 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D255AD30486D3F9007BF209 /* Discology.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Discology.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		A86948CD0F15F9DB005945CD /* Simulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A86948CF0F15F9DB005945CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A86948D80F15FA71005945CD /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		A86948E00F15FB0A005945CD /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		A86948E30F15FB21005945CD /* MainController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = MainController.h; sourceTree = "<group>"; };
+		A86948E40F15FB21005945CD /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		A86948F20F15FB4B005945CD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A86949100F15FCB5005945CD /* Audiobooks.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Audiobooks.tiff; sourceTree = "<group>"; };
+		A86949110F15FCB5005945CD /* Music.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Music.tiff; sourceTree = "<group>"; };
+		A86949120F15FCB5005945CD /* Playlist.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Playlist.tiff; sourceTree = "<group>"; };
+		A86949130F15FCB5005945CD /* Podcasts.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Podcasts.tiff; sourceTree = "<group>"; };
+		A86949140F15FCB5005945CD /* Purchased.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Purchased.tiff; sourceTree = "<group>"; };
+		A86949150F15FCB5005945CD /* SmartPlaylist.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SmartPlaylist.tiff; sourceTree = "<group>"; };
+		A889CCEE0F15FF6E008A186D /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
+		F50079790118B23001CA0E54 /* DiscologyScreenSaverView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = DiscologyScreenSaverView.h; sourceTree = "<group>"; };
+		F500797A0118B23001CA0E54 /* DiscologyScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscologyScreenSaverView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D255ACD0486D3F9007BF209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D255ACE0486D3F9007BF209 /* Cocoa.framework in Frameworks */,
+				8D255ACF0486D3F9007BF209 /* ScreenSaver.framework in Frameworks */,
+				A86948D90F15FA71005945CD /* QTKit.framework in Frameworks */,
+				A889CCF00F15FF6E008A186D /* QuickTime.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A86948CB0F15F9DB005945CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A889CCED0F15FF55008A186D /* AppKit.framework in Frameworks */,
+				A86949230F15FD07005945CD /* Cocoa.framework in Frameworks */,
+				A86948DA0F15FA71005945CD /* QTKit.framework in Frameworks */,
+				A889CCEF0F15FF6E008A186D /* QuickTime.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Discology */ = {
+			isa = PBXGroup;
+			children = (
+				A86948D70F15FA3F005945CD /* ScreenSaver */,
+				A86948D60F15FA2C005945CD /* Simulator */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = Discology;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A869490F0F15FCB5005945CD /* Images */,
+				8D255AD20486D3F9007BF209 /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F50079790118B23001CA0E54 /* DiscologyScreenSaverView.h */,
+				F500797A0118B23001CA0E54 /* DiscologyScreenSaverView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				06F27B2DFFEEEFEF11CA0E56 /* ScreenSaver.framework */,
+				A889CCEE0F15FF6E008A186D /* QuickTime.framework */,
+				A86948D80F15FA71005945CD /* QTKit.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D255AD30486D3F9007BF209 /* Discology.saver */,
+				A86948CD0F15F9DB005945CD /* Simulator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32DBCFA70370C4F300C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		A86948D60F15FA2C005945CD /* Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				A86948DB0F15FA7F005945CD /* Classes */,
+				A86948DF0F15FABF005945CD /* Other Sources */,
+				A86948DC0F15FA86005945CD /* Resources */,
+			);
+			path = Simulator;
+			sourceTree = "<group>";
+		};
+		A86948D70F15FA3F005945CD /* ScreenSaver */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32DBCFA70370C4F300C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+			);
+			name = ScreenSaver;
+			sourceTree = "<group>";
+		};
+		A86948DB0F15FA7F005945CD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A86948E30F15FB21005945CD /* MainController.h */,
+				A86948E40F15FB21005945CD /* MainController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		A86948DC0F15FA86005945CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A86948E00F15FB0A005945CD /* MainMenu.xib */,
+				A86948CF0F15F9DB005945CD /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A86948DF0F15FABF005945CD /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A86948F20F15FB4B005945CD /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		A869490F0F15FCB5005945CD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A86949100F15FCB5005945CD /* Audiobooks.tiff */,
+				A86949110F15FCB5005945CD /* Music.tiff */,
+				A86949120F15FCB5005945CD /* Playlist.tiff */,
+				A86949130F15FCB5005945CD /* Podcasts.tiff */,
+				A86949140F15FCB5005945CD /* Purchased.tiff */,
+				A86949150F15FCB5005945CD /* SmartPlaylist.tiff */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8D255AC60486D3F9007BF209 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D255AC80486D3F9007BF209 /* DiscologyScreenSaverView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8D255AC50486D3F9007BF209 /* Discology */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF7AD72D08BB986600CE4634 /* Build configuration list for PBXNativeTarget "Discology" */;
+			buildPhases = (
+				8D255AC60486D3F9007BF209 /* Headers */,
+				8D255AC90486D3F9007BF209 /* Resources */,
+				8D255ACB0486D3F9007BF209 /* Sources */,
+				8D255ACD0486D3F9007BF209 /* Frameworks */,
+				8D255AD00486D3F9007BF209 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Discology;
+			productInstallPath = "$(HOME)/Library/Screen Savers";
+			productName = Discology;
+			productReference = 8D255AD30486D3F9007BF209 /* Discology.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A86948CC0F15F9DB005945CD /* Simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A86948D20F15F9DD005945CD /* Build configuration list for PBXNativeTarget "Simulator" */;
+			buildPhases = (
+				A86948C90F15F9DB005945CD /* Resources */,
+				A86948CA0F15F9DB005945CD /* Sources */,
+				A86948CB0F15F9DB005945CD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Simulator;
+			productName = Simulator;
+			productReference = A86948CD0F15F9DB005945CD /* Simulator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = EF7AD73108BB986600CE4634 /* Build configuration list for PBXProject "Discology" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* Discology */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D255AC50486D3F9007BF209 /* Discology */,
+				A86948CC0F15F9DB005945CD /* Simulator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D255AC90486D3F9007BF209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D255ACA0486D3F9007BF209 /* InfoPlist.strings in Resources */,
+				A869491C0F15FCB5005945CD /* Audiobooks.tiff in Resources */,
+				A869491D0F15FCB5005945CD /* Music.tiff in Resources */,
+				A869491E0F15FCB5005945CD /* Playlist.tiff in Resources */,
+				A869491F0F15FCB5005945CD /* Podcasts.tiff in Resources */,
+				A86949200F15FCB5005945CD /* Purchased.tiff in Resources */,
+				A86949210F15FCB5005945CD /* SmartPlaylist.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A86948C90F15F9DB005945CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A86948E20F15FB0A005945CD /* MainMenu.xib in Resources */,
+				A86949160F15FCB5005945CD /* Audiobooks.tiff in Resources */,
+				A86949170F15FCB5005945CD /* Music.tiff in Resources */,
+				A86949180F15FCB5005945CD /* Playlist.tiff in Resources */,
+				A86949190F15FCB5005945CD /* Podcasts.tiff in Resources */,
+				A869491A0F15FCB5005945CD /* Purchased.tiff in Resources */,
+				A869491B0F15FCB5005945CD /* SmartPlaylist.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		8D255AD00486D3F9007BF209 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D255ACB0486D3F9007BF209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D255ACC0486D3F9007BF209 /* DiscologyScreenSaverView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A86948CA0F15F9DB005945CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A86948E70F15FB21005945CD /* MainController.m in Sources */,
+				A86948F30F15FB4B005945CD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A86948D00F15F9DD005945CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = Simulator/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Simulator;
+			};
+			name = Debug;
+		};
+		A86948D10F15F9DD005945CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = Simulator/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Simulator;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		EF7AD72E08BB986600CE4634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = Discology;
+				WRAPPER_EXTENSION = saver;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		EF7AD72F08BB986600CE4634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = Discology;
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+		EF7AD73208BB986600CE4634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		EF7AD73308BB986600CE4634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A86948D20F15F9DD005945CD /* Build configuration list for PBXNativeTarget "Simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A86948D00F15F9DD005945CD /* Debug */,
+				A86948D10F15F9DD005945CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF7AD72D08BB986600CE4634 /* Build configuration list for PBXNativeTarget "Discology" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF7AD72E08BB986600CE4634 /* Debug */,
+				EF7AD72F08BB986600CE4634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF7AD73108BB986600CE4634 /* Build configuration list for PBXProject "Discology" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF7AD73208BB986600CE4634 /* Debug */,
+				EF7AD73308BB986600CE4634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

@@ -1,8 +1,8 @@
 //
-//  MainController.h
+//  AlbumArtView.h
 //  Discology
 //
-//  Created by Chad Weider on 1/8/09.
+//  Created by Chad Weider on 1/9/09.
 //  Copyright (c) 2009, Chad Weider
 //  Some rights reserved: <http://www.opensource.org/licenses/zlib-license.php>
 //
@@ -26,32 +26,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <QTKit/QTKit.h>
-
-#import "AlbumArtView.h"
 
 
-@interface MainController : NSObject
+@interface AlbumArtView : NSView
   {
-  NSDictionary *iTunesLibrary;
 
-  IBOutlet AlbumArtView *albumArtView;
-
-  IBOutlet NSPopUpButton *playlistSelector;
-  IBOutlet NSButton *refreshItemButton;
-
-  IBOutlet NSTextField *albumName;
-  IBOutlet NSTextField *artistName;
-  IBOutlet NSImageView *albumArtwork;
   }
-
-- (IBAction)updatePlaylistSelection:(id)sender;
-- (IBAction)updateTrackInfo:(id)sender;
-
-- (NSArray *)availableTracks;
-
-- (NSImage *)artworkForTrack:(NSString *)trackId;
-- (NSImage *)fetchArtworkFromFile:(NSURL *)url;
-- (NSImage *)fetchArtworkFromAlbumArtworkFolder:(NSString *)persistentId;
 
 @end

@@ -61,18 +61,11 @@
 	{
 	for(NSUInteger layerRow = 0; layerRow < rowCount; layerRow++)
 		{
-		CALayer *tileLayer = [[CALayer alloc] init];
+		CALayer *tileLayer = [self newTile];
 
 		CGFloat size = floorf(fmin(CGRectGetWidth(NSRectToCGRect([self frame]))/columnCount,
 								   CGRectGetHeight(NSRectToCGRect([self frame]))/rowCount));
 
-		[tileLayer setEdgeAntialiasingMask:kCALayerLeftEdge | kCALayerRightEdge | kCALayerBottomEdge | kCALayerTopEdge];
-
-		CATransform3D depthTransform = CATransform3DIdentity;
-		depthTransform.m34 = 1. / -(1.5*size);
-		[tileLayer setTransform:depthTransform];
-
-		[tileLayer setBackgroundColor:CGColorCreateGenericRGB((random() % 256)/255., (random() % 256)/255., (random() % 256)/255., 1.0)];
 		[tileLayer setFrame:CGRectMake((CGRectGetWidth(NSRectToCGRect([self frame]))-(size*columnCount))/2+size*layerColumn,
 									   (CGRectGetHeight(NSRectToCGRect([self frame]))-(size*rowCount))/2+size*layerRow, size, size)];
 
@@ -104,6 +97,20 @@
 
 	[tileLayer addAnimation:flipAnimation forKey:@"flipAnimation"];
   [CATransaction commit];
+  }
+
+- (CALayer *)newTile
+  {
+  CALayer *tileLayer = [[CALayer alloc] init];
+
+  CATransform3D depthTransform = CATransform3DIdentity;
+  depthTransform.m34 = 1. / -(150);
+  [tileLayer setTransform:depthTransform];
+
+  [tileLayer setBackgroundColor:CGColorCreateGenericRGB((random() % 256)/255., (random() % 256)/255., (random() % 256)/255., 1.0)];
+  [tileLayer setEdgeAntialiasingMask:kCALayerLeftEdge | kCALayerRightEdge | kCALayerBottomEdge | kCALayerTopEdge];
+
+  return tileLayer;
   }
 
 @end

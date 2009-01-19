@@ -49,6 +49,8 @@
 - (IBAction)updateTrackInfo:(id)sender;
 
 - (NSArray *)availableTracks;
+- (NSDictionary *)anyTrack;
+- (NSImage *)anyArtwork;
 
 - (NSImage *)artworkForTrack:(NSString *)trackId;
 - (NSImage *)fetchArtworkFromFile:(NSURL *)url;

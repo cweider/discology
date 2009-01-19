@@ -50,6 +50,7 @@
   {
   [albumArtwork setImageScaling:NSImageScaleProportionallyUpOrDown];
   [[refreshItemButton layer] setZPosition:1];	//make sure button is on top
+  [albumArtView setDataSource:self];
 
   [self updatePlaylistSelection:self];
   [self updateTrackInfo:self];
@@ -116,17 +117,11 @@
 
 - (IBAction)updateTrackInfo:(id)sender
   {
-  NSArray *availableTracks = [self availableTracks];
-  NSString *trackId = [[[availableTracks objectAtIndex:(random() % [availableTracks count])] objectForKey:@"Track ID"] stringValue];
-  NSDictionary *trackDictionary = [[iTunesLibrary objectForKey:@"Tracks"] objectForKey:trackId];
-
-  NSImage *artwork = [self artworkForTrack:trackId];
-  if(artwork == nil)
-	return [self updateTrackInfo:self];
+  NSDictionary *trackDictionary = [self anyTrack];
 
   [albumName setStringValue:[trackDictionary objectForKey:@"Album"]];
   [artistName setStringValue:[trackDictionary objectForKey:@"Artist"]];
-  [albumArtwork setImage:artwork];
+  [albumArtwork setImage:[self artworkForTrack:[[trackDictionary objectForKey:@"Track ID"] stringValue]]];
   }
 
 - (NSArray *)availableTracks
@@ -135,6 +130,28 @@
   return [playlist objectForKey:@"Playlist Items"];
   }
 
+- (NSImage *)anyArtwork
+  {
+  NSDictionary *trackDictionary = [self anyTrack];
+  return [self artworkForTrack:[[trackDictionary objectForKey:@"Track ID"] stringValue]];
+  }
+
+- (NSDictionary *)anyTrack
+  {
+  NSArray *availableTracks = [self availableTracks];
+  NSString *trackId;
+  NSImage *artwork = nil;
+
+  NSUInteger randomIndex = random();
+
+  do {
+	randomIndex = (randomIndex + 1) % [availableTracks count];
+	trackId = [[[availableTracks objectAtIndex:randomIndex] objectForKey:@"Track ID"] stringValue];
+	artwork = [self artworkForTrack:trackId];
+  } while(artwork == nil);
+
+  return [[iTunesLibrary objectForKey:@"Tracks"] objectForKey:trackId];
+  }
 
 - (NSImage *)artworkForTrack:(NSString *)trackId
   {

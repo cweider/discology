@@ -31,8 +31,11 @@
 
 @interface AlbumArtView : NSView
   {
-
+  id dataSource;
   }
+
+- (void)setDataSource:(id)aSource;
+- (id)dataSource;
 
 - (void)buildTileGridColumns:(NSUInteger)columnCount rows:(NSUInteger)rowCount;
 - (void)flipATile;

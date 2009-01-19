@@ -49,8 +49,17 @@
 
   [self buildTileGridColumns:8 rows:5];
 
-  [NSTimer scheduledTimerWithTimeInterval:(8*5)/750. target:self selector:@selector(flipATile) userInfo:nil repeats:YES];
-  [self flipATile];
+  [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(flipATile) userInfo:nil repeats:YES];
+  }
+
+- (void)setDataSource:(id)aSource
+  {
+  [dataSource release];
+  dataSource = [aSource retain];
+  }
+- (id)dataSource
+  {
+  return dataSource;
   }
 
 - (void)buildTileGridColumns:(NSUInteger)columnCount rows:(NSUInteger)rowCount
@@ -95,7 +104,7 @@
   [CATransaction commit];
 
   [CATransaction begin];
-	[CATransaction setValue:[NSNumber numberWithFloat:0.75] forKey:kCATransactionAnimationDuration];
+	[CATransaction setValue:[NSNumber numberWithFloat:0.5] forKey:kCATransactionAnimationDuration];
 	[CATransaction setValue:[NSNumber numberWithBool:NO] forKey:kCATransactionDisableActions];
 
 	[tileLayer addAnimation:[self orderOutAnimationForLayer:tileLayer] forKey:@"orderingOut"];
@@ -111,8 +120,36 @@
   depthTransform.m34 = 1. / -(150);
   [tileLayer setTransform:depthTransform];
 
-  [tileLayer setBackgroundColor:CGColorCreateGenericRGB((random() % 256)/255., (random() % 256)/255., (random() % 256)/255., 1.0)];
   [tileLayer setEdgeAntialiasingMask:kCALayerLeftEdge | kCALayerRightEdge | kCALayerBottomEdge | kCALayerTopEdge];
+
+  /* Load tile with fresh image from datasource */
+  if([[self dataSource] respondsToSelector:@selector(anyArtwork)])
+	{
+	NSImage *img = (NSImage *)[[self dataSource] performSelector:@selector(anyArtwork)];
+
+	/* Manufacture CGImage from NSImage */
+	CGContextRef bitmapCtx = CGBitmapContextCreate(NULL,
+												   [img size].width,
+												   [img size].height,
+												   8,
+												   0,
+												   [[NSColorSpace genericRGBColorSpace] CGColorSpace],
+												   kCGBitmapByteOrder32Host|kCGImageAlphaPremultipliedFirst);
+	[NSGraphicsContext saveGraphicsState];
+	[NSGraphicsContext setCurrentContext:[NSGraphicsContext graphicsContextWithGraphicsPort:bitmapCtx flipped:NO]];
+	[img drawInRect:NSMakeRect(0,0, [img size].width, [img size].height) fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];
+	[NSGraphicsContext restoreGraphicsState];
+
+	CGImageRef cgImage = CGBitmapContextCreateImage(bitmapCtx);
+	CFRelease(bitmapCtx);
+
+	[tileLayer setContents:(id)cgImage];
+	CFRelease(cgImage);
+	}
+  else
+	{
+	[tileLayer setBackgroundColor:CGColorCreateGenericRGB((random() % 256)/255., (random() % 256)/255., (random() % 256)/255., 1.0)];
+	}
 
   return [tileLayer autorelease];
   }

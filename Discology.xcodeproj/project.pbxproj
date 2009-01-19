@@ -30,6 +30,11 @@
 		A86949200F15FCB5005945CD /* Purchased.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949140F15FCB5005945CD /* Purchased.tiff */; };
 		A86949210F15FCB5005945CD /* SmartPlaylist.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A86949150F15FCB5005945CD /* SmartPlaylist.tiff */; };
 		A86949230F15FD07005945CD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		A8830E490F17557200586801 /* AlbumArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8830E470F17557200586801 /* AlbumArtView.m */; };
+		A8830E4A0F17557200586801 /* AlbumArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8830E470F17557200586801 /* AlbumArtView.m */; };
+		A8830E4B0F17557200586801 /* AlbumArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A8830E480F17557200586801 /* AlbumArtView.h */; };
+		A8830EDE0F175A9D00586801 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8830EDD0F175A9D00586801 /* QuartzCore.framework */; };
+		A8830EDF0F175A9D00586801 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8830EDD0F175A9D00586801 /* QuartzCore.framework */; };
 		A889CCED0F15FF55008A186D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C167FFE841241C02AAC07 /* AppKit.framework */; };
 		A889CCEF0F15FF6E008A186D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A889CCEE0F15FF6E008A186D /* QuickTime.framework */; };
 		A889CCF00F15FF6E008A186D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A889CCEE0F15FF6E008A186D /* QuickTime.framework */; };
@@ -56,6 +61,9 @@
 		A86949130F15FCB5005945CD /* Podcasts.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Podcasts.tiff; sourceTree = "<group>"; };
 		A86949140F15FCB5005945CD /* Purchased.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Purchased.tiff; sourceTree = "<group>"; };
 		A86949150F15FCB5005945CD /* SmartPlaylist.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SmartPlaylist.tiff; sourceTree = "<group>"; };
+		A8830E470F17557200586801 /* AlbumArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumArtView.m; sourceTree = "<group>"; };
+		A8830E480F17557200586801 /* AlbumArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumArtView.h; sourceTree = "<group>"; };
+		A8830EDD0F175A9D00586801 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A889CCEE0F15FF6E008A186D /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 		F50079790118B23001CA0E54 /* DiscologyScreenSaverView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = DiscologyScreenSaverView.h; sourceTree = "<group>"; };
 		F500797A0118B23001CA0E54 /* DiscologyScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscologyScreenSaverView.m; sourceTree = "<group>"; };
@@ -70,6 +78,7 @@
 				8D255ACF0486D3F9007BF209 /* ScreenSaver.framework in Frameworks */,
 				A86948D90F15FA71005945CD /* QTKit.framework in Frameworks */,
 				A889CCF00F15FF6E008A186D /* QuickTime.framework in Frameworks */,
+				A8830EDE0F175A9D00586801 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,7 @@
 				A86949230F15FD07005945CD /* Cocoa.framework in Frameworks */,
 				A86948DA0F15FA71005945CD /* QTKit.framework in Frameworks */,
 				A889CCEF0F15FF6E008A186D /* QuickTime.framework in Frameworks */,
+				A8830EDF0F175A9D00586801 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +132,8 @@
 			children = (
 				F50079790118B23001CA0E54 /* DiscologyScreenSaverView.h */,
 				F500797A0118B23001CA0E54 /* DiscologyScreenSaverView.m */,
+				A8830E480F17557200586801 /* AlbumArtView.h */,
+				A8830E470F17557200586801 /* AlbumArtView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -133,6 +145,7 @@
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 				06F27B2DFFEEEFEF11CA0E56 /* ScreenSaver.framework */,
 				A889CCEE0F15FF6E008A186D /* QuickTime.framework */,
+				A8830EDD0F175A9D00586801 /* QuartzCore.framework */,
 				A86948D80F15FA71005945CD /* QTKit.framework */,
 			);
 			name = "Linked Frameworks";
@@ -229,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D255AC80486D3F9007BF209 /* DiscologyScreenSaverView.h in Headers */,
+				A8830E4B0F17557200586801 /* AlbumArtView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D255ACC0486D3F9007BF209 /* DiscologyScreenSaverView.m in Sources */,
+				A8830E4A0F17557200586801 /* AlbumArtView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +361,7 @@
 			files = (
 				A86948E70F15FB21005945CD /* MainController.m in Sources */,
 				A86948F30F15FB4B005945CD /* main.m in Sources */,
+				A8830E490F17557200586801 /* AlbumArtView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

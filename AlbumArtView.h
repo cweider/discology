@@ -35,5 +35,6 @@
   }
 
 - (void)buildTileGridColumns:(NSUInteger)columnCount rows:(NSUInteger)rowCount;
+- (void)flipATile;
 
 @end

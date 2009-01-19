@@ -48,6 +48,9 @@
   [rootLayer release];
 
   [self buildTileGridColumns:8 rows:5];
+
+  [NSTimer scheduledTimerWithTimeInterval:(8*5)/750. target:self selector:@selector(flipATile) userInfo:nil repeats:YES];
+  [self flipATile];
   }
 
 - (void)buildTileGridColumns:(NSUInteger)columnCount rows:(NSUInteger)rowCount
@@ -64,6 +67,11 @@
 								   CGRectGetHeight(NSRectToCGRect([self frame]))/rowCount));
 
 		[tileLayer setEdgeAntialiasingMask:kCALayerLeftEdge | kCALayerRightEdge | kCALayerBottomEdge | kCALayerTopEdge];
+
+		CATransform3D depthTransform = CATransform3DIdentity;
+		depthTransform.m34 = 1. / -(1.5*size);
+		[tileLayer setTransform:depthTransform];
+
 		[tileLayer setBackgroundColor:CGColorCreateGenericRGB((random() % 256)/255., (random() % 256)/255., (random() % 256)/255., 1.0)];
 		[tileLayer setFrame:CGRectMake((CGRectGetWidth(NSRectToCGRect([self frame]))-(size*columnCount))/2+size*layerColumn,
 									   (CGRectGetHeight(NSRectToCGRect([self frame]))-(size*rowCount))/2+size*layerRow, size, size)];
@@ -76,6 +84,26 @@
   [[self layer] setSublayers:tileLayers];
 
   [tileLayers release];
+  }
+
+- (void)flipATile
+  {
+  NSArray *subLayers = [[self layer] sublayers];
+  CALayer *tileLayer = nil;
+
+  do {
+	tileLayer = [subLayers objectAtIndex:(random() % [subLayers count])];
+  } while([tileLayer animationForKey:@"flipAnimation"] != nil);
+
+  [CATransaction begin];
+	[CATransaction setValue:[NSNumber numberWithFloat:0.75] forKey:kCATransactionAnimationDuration];
+
+	CABasicAnimation *flipAnimation = [CABasicAnimation animation];
+	[flipAnimation setKeyPath:@"transform"];
+	[flipAnimation setToValue:[NSValue valueWithCATransform3D:CATransform3DRotate([tileLayer transform], 1*M_PI, 0, 1, 0)]];
+
+	[tileLayer addAnimation:flipAnimation forKey:@"flipAnimation"];
+  [CATransaction commit];
   }
 
 @end

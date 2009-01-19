@@ -38,5 +38,7 @@
 - (void)flipATile;
 
 - (CALayer *)newTile;
+- (CAAnimation *)orderOutAnimationForLayer:(CALayer *)tileLayer;
+- (CAAnimation *)orderInAnimationForLayer:(CALayer *)tileLayer;
 
 @end

@@ -83,19 +83,24 @@
   {
   NSArray *subLayers = [[self layer] sublayers];
   CALayer *tileLayer = nil;
+  CALayer *newLayer = [self newTile];
 
   do {
 	tileLayer = [subLayers objectAtIndex:(random() % [subLayers count])];
-  } while([tileLayer animationForKey:@"flipAnimation"] != nil);
+  } while([tileLayer animationForKey:@"orderingOut"] != nil || [tileLayer animationForKey:@"orderingIn"] != nil);
+
+  [CATransaction begin];
+	[CATransaction setValue:[NSNumber numberWithBool:YES] forKey:kCATransactionDisableActions];
+	[newLayer setFrame:[tileLayer frame]];
+	[[self layer] addSublayer:newLayer];
+  [CATransaction commit];
 
   [CATransaction begin];
 	[CATransaction setValue:[NSNumber numberWithFloat:0.75] forKey:kCATransactionAnimationDuration];
+	[CATransaction setValue:[NSNumber numberWithBool:NO] forKey:kCATransactionDisableActions];
 
-	CABasicAnimation *flipAnimation = [CABasicAnimation animation];
-	[flipAnimation setKeyPath:@"transform"];
-	[flipAnimation setToValue:[NSValue valueWithCATransform3D:CATransform3DRotate([tileLayer transform], 1*M_PI, 0, 1, 0)]];
-
-	[tileLayer addAnimation:flipAnimation forKey:@"flipAnimation"];
+	[tileLayer addAnimation:[self orderOutAnimationForLayer:tileLayer] forKey:@"orderingOut"];
+	[newLayer addAnimation:[self orderInAnimationForLayer:newLayer] forKey:@"orderingIn"];
   [CATransaction commit];
   }
 
@@ -111,6 +116,61 @@
   [tileLayer setEdgeAntialiasingMask:kCALayerLeftEdge | kCALayerRightEdge | kCALayerBottomEdge | kCALayerTopEdge];
 
   return tileLayer;
+  }
+
+- (CAAnimation *)orderOutAnimationForLayer:(CALayer *)layer
+  {
+  CABasicAnimation *flipAnimation = [CABasicAnimation animation];
+  CATransform3D transformFrom = CATransform3DRotate([layer transform], 0*M_PI, 0, 1, 0);
+  CATransform3D transformTo   = CATransform3DRotate([layer transform], 1*M_PI, 0, 1, 0);
+  [flipAnimation setKeyPath:@"transform"];
+  [flipAnimation setFromValue:[NSValue valueWithCATransform3D:transformFrom]];
+  [flipAnimation setToValue:[NSValue valueWithCATransform3D:transformTo]];
+
+  CABasicAnimation *orderAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
+  [orderAnimation setFromValue:[NSNumber numberWithInt:999]];
+  [orderAnimation setToValue:[NSNumber numberWithInt:-999]];
+
+  CAAnimationGroup *animations = [CAAnimationGroup animation];
+  [animations setAnimations:[NSArray arrayWithObjects:flipAnimation, orderAnimation, nil]];
+  [animations setValue:@"orderOutAnimation" forKey:@"type"];
+  [animations setValue:layer forKey:@"attachedLayer"];
+  [animations setDelegate:self];
+
+  return animations;
+  }
+
+- (CAAnimation *)orderInAnimationForLayer:(CALayer *)layer
+  {
+  CABasicAnimation *flipAnimation = [CABasicAnimation animation];
+  CATransform3D transformFrom = CATransform3DRotate([layer transform], 1*M_PI, 0, -1, 0);
+  CATransform3D transformTo   = CATransform3DRotate([layer transform], 0*M_PI, 0, -1, 0);
+  [flipAnimation setKeyPath:@"transform"];
+  [flipAnimation setFromValue:[NSValue valueWithCATransform3D:transformFrom]];
+  [flipAnimation setToValue:[NSValue valueWithCATransform3D:transformTo]];
+
+  CABasicAnimation *orderAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
+  [orderAnimation setFromValue:[NSNumber numberWithInt:-999]];
+  [orderAnimation setToValue:[NSNumber numberWithInt:999]];
+
+  CAAnimationGroup *animations = [CAAnimationGroup animation];
+  [animations setAnimations:[NSArray arrayWithObjects:flipAnimation, orderAnimation, nil]];
+  [animations setValue:@"orderInAnimation" forKey:@"type"];
+  [animations setValue:layer forKey:@"attachedLayer"];
+  [animations setDelegate:self];
+
+  return animations;
+  }
+
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
+  {
+  if([[theAnimation valueForKey:@"type"] isEqualToString:@"orderOutAnimation"])
+	{
+	[CATransaction begin];
+		[CATransaction setValue:[NSNumber numberWithBool:YES] forKey:kCATransactionDisableActions];
+		[[theAnimation valueForKey:@"attachedLayer"] removeFromSuperlayer];
+	[CATransaction commit];
+	}
   }
 
 @end

@@ -161,7 +161,10 @@
   QTCopyMovieMetaData([track quickTimeMovie], &metaDataContainer);
 
   if(!metaDataContainer)
+	{
+	[track release];
 	return nil;
+	}
 
   QTMetaDataGetNextItem(metaDataContainer,
 						kQTMetaDataStorageFormatiTunes,
@@ -173,6 +176,7 @@
   if(metadataItem == kQTMetaDataItemUninitialized)
 	{
 	QTMetaDataRelease(metaDataContainer);
+	[track release];
 	return nil;
 	}
 
@@ -185,6 +189,7 @@
   if(artworkSize == 0)
 	{
 	QTMetaDataRelease(metaDataContainer);
+	[track release];
 	return nil;
 	}
 

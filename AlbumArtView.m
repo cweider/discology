@@ -70,7 +70,6 @@
 									   (CGRectGetHeight(NSRectToCGRect([self frame]))-(size*rowCount))/2+size*layerRow, size, size)];
 
 		[tileLayers addObject:tileLayer];
-		[tileLayer release];
 		}
 	}
 
@@ -115,7 +114,7 @@
   [tileLayer setBackgroundColor:CGColorCreateGenericRGB((random() % 256)/255., (random() % 256)/255., (random() % 256)/255., 1.0)];
   [tileLayer setEdgeAntialiasingMask:kCALayerLeftEdge | kCALayerRightEdge | kCALayerBottomEdge | kCALayerTopEdge];
 
-  return tileLayer;
+  return [tileLayer autorelease];
   }
 
 - (CAAnimation *)orderOutAnimationForLayer:(CALayer *)layer

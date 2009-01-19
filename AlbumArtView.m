@@ -39,10 +39,43 @@
   return self;
   }
 
-- (void)drawRect:(NSRect)rect
+- (void)awakeFromNib
   {
-  [[NSColor blackColor] set];
-  NSRectFill(rect);
+  CALayer *rootLayer = [[CALayer alloc] init];
+  [rootLayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 0.0, 1.0)];
+  [self setLayer:rootLayer];
+  [self setWantsLayer:YES];
+  [rootLayer release];
+
+  [self buildTileGridColumns:8 rows:5];
+  }
+
+- (void)buildTileGridColumns:(NSUInteger)columnCount rows:(NSUInteger)rowCount
+  {
+  NSMutableArray *tileLayers = [[NSMutableArray alloc] initWithCapacity:columnCount*rowCount];
+
+  for(NSUInteger layerColumn = 0; layerColumn < columnCount; layerColumn++)
+	{
+	for(NSUInteger layerRow = 0; layerRow < rowCount; layerRow++)
+		{
+		CALayer *tileLayer = [[CALayer alloc] init];
+
+		CGFloat size = floorf(fmin(CGRectGetWidth(NSRectToCGRect([self frame]))/columnCount,
+								   CGRectGetHeight(NSRectToCGRect([self frame]))/rowCount));
+
+		[tileLayer setEdgeAntialiasingMask:kCALayerLeftEdge | kCALayerRightEdge | kCALayerBottomEdge | kCALayerTopEdge];
+		[tileLayer setBackgroundColor:CGColorCreateGenericRGB((random() % 256)/255., (random() % 256)/255., (random() % 256)/255., 1.0)];
+		[tileLayer setFrame:CGRectMake((CGRectGetWidth(NSRectToCGRect([self frame]))-(size*columnCount))/2+size*layerColumn,
+									   (CGRectGetHeight(NSRectToCGRect([self frame]))-(size*rowCount))/2+size*layerRow, size, size)];
+
+		[tileLayers addObject:tileLayer];
+		[tileLayer release];
+		}
+	}
+
+  [[self layer] setSublayers:tileLayers];
+
+  [tileLayers release];
   }
 
 @end

@@ -26,11 +26,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <QuartzCore/CoreAnimation.h>
 
 
 @interface AlbumArtView : NSView
   {
 
   }
+
+- (void)buildTileGridColumns:(NSUInteger)columnCount rows:(NSUInteger)rowCount;
 
 @end
